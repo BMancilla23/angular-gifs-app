@@ -1,128 +1,25 @@
-### Install Angular ESLint
+# Documentación del Proyecto Angular
 
-`ng add @angular-eslint/schematics`
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) versión 17.1.3.
 
-### Install Prettier and Prettier-ESLint dependencies
+## Instalación de dependencias
 
-`npm i prettier prettier-eslint eslint-config-prettier eslint-plugin-prettier -D`
-
-### ESLint configuration
-
-Filename: `.eslintrc.json`
-
-```json
-// https://github.com/angular-eslint/angular-eslint#notes-for-eslint-plugin-prettier-users
-{
-  "root": true,
-  "ignorePatterns": ["projects/**/*"],
-  "overrides": [
-    {
-      "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
-      },
-      "extends": ["plugin:@angular-eslint/recommended", "plugin:@angular-eslint/template/process-inline-templates", "plugin:prettier/recommended"],
-      "rules": {
-        "@angular-eslint/component-class-suffix": [
-          "error",
-          {
-            "suffixes": ["Page", "Component"]
-          }
-        ],
-        "@angular-eslint/component-selector": [
-          "error",
-          {
-            "type": "element",
-            "prefix": "app",
-            "style": "kebab-case"
-          }
-        ],
-        "@angular-eslint/directive-selector": [
-          "error",
-          {
-            "type": "attribute",
-            "prefix": "app",
-            "style": "camelCase"
-          }
-        ],
-        "@angular-eslint/use-lifecycle-interface": ["error"],
-        "@typescript-eslint/member-ordering": 0,
-        "@typescript-eslint/naming-convention": 0
-      }
-    },
-    {
-      "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
-    },
-    {
-      "files": ["*.html"],
-      "excludedFiles": ["*inline-template-*.component.html"],
-      "extends": ["plugin:prettier/recommended"],
-      "rules": {
-        "prettier/prettier": ["error", { "parser": "angular" }]
-      }
-    }
-  ]
-}
+```bash
+npm install
 ```
 
-### Prettier Configuration
+## Servidor de Desarrollo
 
-Filename: `.prettierrc`
+Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
 
-```json
-{
-  "tabWidth": 2,
-  "useTabs": false,
-  "singleQuote": true,
-  "semi": true,
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "trailingComma": "es5",
-  "bracketSameLine": true,
-  "printWidth": 80
-}
+```bash
+ng serve
 ```
 
-Filename: `.prettierignore`
+## Construcción del Proyecto
 
+Para construir el proyecto, ejecuta el siguiente comando:
+
+```bash
+ng build
 ```
-dist
-node_modules
-```
-
-### VSCode extensions:
-
-```
-dbaeumer.vscode-eslint
-esbenp.prettier-vscode
-```
-
-### Add the following to your .vscode/settings.json file:
-
-```
-{
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": false
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": true
-    },
-    "editor.formatOnSave": false
-  },
-},
-"editor.suggest.snippetsPreventQuickSuggestions": false,
-"editor.inlineSuggest.enabled": true
-```
-
-### Add Fix Lint and Prettier errors command in package.json
-
-`"lint:fix": "ng lint --fix"`
