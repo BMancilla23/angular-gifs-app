@@ -1,0 +1,15 @@
+<div
+  class="flex items-center justify-between bg-white border-[1px] border-slate-800 py-3 px-6 w-1/2 mx-auto rounded-lg">
+  <!-- (keyup.enter)="searchTag(txtTagInput.value)" -->
+  <input
+    class="bg-transparent outline-none w-full"
+    type="search"
+    name="search"
+    placeholder="Buscar gifs..."
+    id=""
+    (keyup.enter)="searchTag()"
+    #txtTagInput />
+  <div class="">
+    <i class="fas fa-search text-lg"></i>
+  </div>
+</div>

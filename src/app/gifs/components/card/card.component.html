@@ -1,0 +1,14 @@
+<!-- <div class="h-[250px] w-full">
+  <img
+    [src]="gif.images.downsized_medium.url"
+    [alt]="gif.title"
+    class="w-full h-full object-cover" />
+</div> -->
+
+<shared-lazy-image
+  [url]="gif.images.downsized_medium.url!"
+  [alt]="gif.title || 'No name'" />
+
+<div class="p-5 text-center">
+  <p>{{ gif.title || 'No title' }}</p>
+</div>
