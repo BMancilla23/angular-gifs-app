@@ -1,0 +1,16 @@
+<div
+  class="bg-slate-950 border-r p-3 text-white flex flex-col gap-y-4 h-screen w-72 font-semibold fixed z-20">
+  <h3 class="text-2xl">GifsApp</h3>
+  <hr />
+
+  <div class="" *ngFor="let tag of tags">
+    <button
+      (click)="searchTag(tag)"
+      class="flex justify-between items-center w-full hover:bg-white hover:text-slate-950 py-2 px-2 transition-all duration-300">
+      {{ tag | titlecase }}
+      <i
+        class="fa-solid fa-xmark hover:text-rose-600"
+        (click)="removeTag(tag, $event)"></i>
+    </button>
+  </div>
+</div>
